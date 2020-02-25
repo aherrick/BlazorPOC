@@ -1,3 +1,4 @@
+using Blazored.Toast;
 using BlazorPOC.Client.ViewModels;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -21,6 +22,7 @@ namespace BlazorPOC.Client
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages().AddNewtonsoftJson();
+            services.AddBlazoredToast();
             services.AddServerSideBlazor();
             services.AddScoped<FetchDataViewModel>();
         }
