@@ -32,5 +32,30 @@
     </div>
 
     <script src="_framework/blazor.server.js"></script>
+
+    <script>
+
+        /* auto reload seems to fail everytime which just asks to reload the page.
+           on fail or rejected, just auto reload, solved.
+
+           only works when running with CTRL+F5 in VS
+
+           */
+
+        function createOwnDisplay() {
+            return {
+                show: () => { },
+                hide: () => { },
+                failed: () => {
+                    location.reload();
+                },
+                rejected: () => {
+                    location.reload();
+                }
+            };
+        }
+
+        Blazor.defaultReconnectionHandler._reconnectionDisplay = createOwnDisplay();
+    </script>
 </body>
 </html>
